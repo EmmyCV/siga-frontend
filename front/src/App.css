@@ -1,0 +1,50 @@
+/* Contenedor principal que usa Flexbox */
+.App {
+  display: flex;
+  height: 100vh;
+}
+
+/* Menú lateral fijo */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar li {
+  padding: 15px 20px;
+  font-size: 16px;
+}
+
+.sidebar li a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar li a:hover {
+  background-color: #444;
+  border-radius: 5px;
+}
+
+/* Contenido principal que se adapta al espacio restante */
+/* Contenido principal */
+.content {
+  flex-grow: 1;
+  
+  padding-left: 40px; /* Agrega espacio entre el contenido y el menú */
+  background-color: #f4f4f4;
+  overflow-y: auto;
+}
