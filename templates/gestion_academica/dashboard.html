@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">  <!-- Si tienes archivos CSS estáticos -->
+</head>
+<body>
+    <header>
+        <h1>Bienvenido al Panel de Control</h1>
+        <p>Hola, {{ usuario.username }}. Estás logueado como {{ usuario.get_full_name }}.</p>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'login' %}">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>{{ mensaje }}</h2>  <!-- El mensaje que pasas desde la vista -->
+
+        <!-- Aquí puedes incluir más contenido relacionado con el panel -->
+        <section>
+            <h3>Resumen de Actividades</h3>
+            <ul>
+                <li><a href="{% url 'horario_estudiante' estudiante_id=usuario.id %}">Ver mi horario</a></li>
+                <li><a href="{% url 'materias_matriculadas' estudiante_id=usuario.id %}">Ver mis materias matriculadas</a></li>
+                <li><a href="{% url 'materias_disponibles' %}">Ver materias disponibles</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mi Empresa - Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <style>
+        /* Estilos básicos para el formulario de login */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            height: 40px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error-messages {
+            margin-top: 20px;
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .error-messages p {
+            margin: 5px 0;
+        }
+
+        .link-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .link-container a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .link-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Iniciar sesión</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username">Correo electrónico</label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <div class="error-messages">
+                        {% for error in form.username.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_password">Contraseña</label>
+                {{ form.password }}
+                {% if form.password.errors %}
+                    <div class="error-messages">
+                        {% for error in form.password.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <button type="submit">Iniciar sesión</button>
+        </form>
+
+        <!-- Mostrar mensaje de error general si lo hay -->
+        <div class="error-messages">
+            {% if error %}
+                <p>{{ error }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Enlace para recuperar la contraseña o registrarse -->
+        <div class="link-container">
+            <p>¿No tienes cuenta? <a href="{% url 'register' %}">Regístrate aquí</a></p>
+            <p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
+        </div>
+    </div>
+
+    <script src="{% static 'js/login.js' %}"></script>
+</body>
+</html>

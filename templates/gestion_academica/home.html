@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de inicio</title>
+    <style>
+        /* Estilos básicos para la página de inicio */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+
+        .links-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bienvenido a nuestra plataforma SIGA</h1>
+
+    <p>¿Ya tienes una cuenta?</p>
+    <div class="links-container">
+        <a href="{% url 'login' %}">Iniciar sesión</a>
+    </div>
+
+    <p>¿No tienes una cuenta?</p>
+    <div class="links-container">
+        <a href="{% url 'registro_estudiante' %}">Registrarte como estudiante</a>
+        <a href="{% url 'registro_docente' %}">Registrarte como docente</a>
+    </div>
+
+</body>
+</html>
