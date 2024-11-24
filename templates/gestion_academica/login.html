@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de sesión</title>
+    <title>Iniciar sesión</title>
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <style>
         /* Estilos básicos para el formulario de login */
@@ -56,7 +56,7 @@
         }
 
         button[type="submit"] {
-            background-color: #4CAF50;
+            background-color: #851919;
             color: white;
             padding: 12px 20px;
             font-size: 16px;
@@ -67,18 +67,14 @@
         }
 
         button[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #cf1313;
         }
 
-        .error-messages {
-            margin-top: 20px;
+        .error-message {
             color: red;
             font-size: 14px;
             text-align: center;
-        }
-
-        .error-messages p {
-            margin: 5px 0;
+            margin-top: 20px;
         }
 
         .link-container {
@@ -87,7 +83,7 @@
         }
 
         .link-container a {
-            color: #4CAF50;
+            color: #851919;
             text-decoration: none;
         }
 
@@ -102,39 +98,29 @@
         <h2>Iniciar sesión</h2>
         <form method="POST">
             {% csrf_token %}
+            
+            <!-- Correo electrónico -->
             <div class="form-group">
                 <label for="id_username">Correo electrónico</label>
-                {{ form.username }}
-                {% if form.username.errors %}
-                    <div class="error-messages">
-                        {% for error in form.username.errors %}
-                            <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                {% endif %}
+                <input type="text" name="username" id="id_username" value="{{ request.POST.username }}" required>
             </div>
 
+            <!-- Contraseña -->
             <div class="form-group">
                 <label for="id_password">Contraseña</label>
-                {{ form.password }}
-                {% if form.password.errors %}
-                    <div class="error-messages">
-                        {% for error in form.password.errors %}
-                            <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                {% endif %}
+                <input type="password" name="password" id="id_password" value="{{ request.POST.password }}" required>
             </div>
 
+            <!-- Botón de iniciar sesión -->
             <button type="submit">Iniciar sesión</button>
-        </form>
 
-        <!-- Mostrar mensaje de error general si lo hay -->
-        <div class="error-messages">
             {% if error %}
-                <p>{{ error }}</p>
+                <!-- Muestra el mensaje de error global solo si hay un error de credenciales -->
+                <div class="error-message">
+                    <p>{{ error }}</p>
+                </div>
             {% endif %}
-        </div>
+        </form>
 
         <!-- Enlace para recuperar la contraseña o registrarse -->
         <div class="link-container">

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Estudiante</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+    <h1>Bienvenido(a), {{ user.first_name }} {{ user.last_name }}</h1>
+    <h2>Panel de Estudiante</h2>
+
+    <section>
+        <h3>Horario de Clases</h3>
+        <p>Aquí puedes consultar tu horario de clases.</p>
+        <a href="/horario/">Ver Horario</a>
+    </section>
+
+    <section>
+        <h3>Materias Matriculadas</h3>
+        <p>Consulta las materias en las que ya estás inscrito.</p>
+        <a href="/materias/matriculadas/">Consultar Materias Matriculadas</a>
+    </section>
+
+    <section>
+        <h3>Materias Disponibles</h3>
+        <p>Revisa las materias disponibles, sus cupos y requisitos.</p>
+        <a href="/materias/disponibles/">Consultar Materias Disponibles</a>
+    </section>
+
+    <section>
+        <h3>Matrícula de Materias</h3>
+        <p>Realiza la matrícula de materias disponibles.</p>
+        <a href="/matriculas/">Realizar Matrícula</a>
+    </section>
+
+    <section>
+        <h3>Pénsum Académico</h3>
+        <p>Consulta las materias obligatorias y electivas de tu carrera.</p>
+        <a href="/pensum/">Consultar Pénsum Académico</a>
+    </section>
+
+    <section>
+        <h3>Registro Histórico de Notas</h3>
+        <p>Visualiza el registro histórico de tus calificaciones.</p>
+        <a href="/notas/historico/">Ver Registro Histórico de Notas</a>
+    </section>
+
+    <section>
+        <h3>Consulta de Deudas</h3>
+        <p>Consulta si tienes deudas pendientes con la universidad.</p>
+        <a href="/deudas/">Consultar Deudas</a>
+    </section>
+</body>
+</html>

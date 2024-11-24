@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Card de Información Estudiantil -->
+    <div class="card shadow-lg">
+        <div class="card-header bg-success text-white text-center">
+            <h4>Información Estudiantil</h4>
+            <small>Consulta tu información personal registrada en el sistema</small>
+        </div>
+        <div class="card-body">
+            <!-- Tabla de Información del Estudiante -->
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-success">
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nombre</td>
+                        <td>{{ estudiante.nombre }}</td>
+                    </tr>
+                    <tr>
+                        <td>Apellidos</td>
+                        <td>{{ estudiante.apellidos }}</td>
+                    </tr>
+                    <tr>
+                        <td>Identificación</td>
+                        <td>{{ estudiante.identificacion }}</td>
+                    </tr>
+                    <tr>
+                        <td>Correo Electrónico</td>
+                        <td>{{ estudiante.correo }}</td>
+                    </tr>
+                    <tr>
+                        <td>Teléfono</td>
+                        <td>{{ estudiante.telefono }}</td>
+                    </tr>
+                    <tr>
+                        <td>Dirección</td>
+                        <td>{{ estudiante.direccion }}</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha de Nacimiento</td>
+                        <td>{{ estudiante.fecha_nacimiento }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
